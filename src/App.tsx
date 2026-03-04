@@ -679,9 +679,14 @@ export default function App() {
                     <Sparkles className="size-4" /> About Me
                   </div>
                   <h2 className="text-4xl font-bold">Engineering <span className="text-primary">Digital Excellence</span></h2>
-                  <p className="text-slate-400 leading-relaxed text-lg">
-                    I'm a solution-oriented developer passionate about building high-quality software. From crafting intuitive UIs in React to architecting robust backend APIs, I focus on security, scalability, and user experience.
-                  </p>
+                  <div className="text-slate-400 leading-relaxed text-[17px] space-y-4">
+                    <p>
+                      I am a results-driven Full Stack Developer with a passion for engineering high-performance web applications. On the frontend, I specialize in crafting pixel-perfect, highly responsive user interfaces that deliver exceptional experiences across all devices. On the backend, I architect scalable, secure RESTful APIs designed for speed and reliability.
+                    </p>
+                    <p>
+                      Beyond just writing code, I thrive in collaborative environments, working closely with cross-functional teams to translate complex requirements into elegant technical solutions. With a proven track record of managing end-to-end development cycles, I take true pride in writing clean, maintainable code and consistently delivering robust products on time.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Stat cards */}
@@ -863,7 +868,6 @@ export default function App() {
                   </div>
                   <div className="flex gap-3 pt-2">
                     {[
-                      { Icon: Terminal, href: '#' },
                       { Icon: Mail,    href: 'mailto:iampreciousss01@gmail.com' },
                       { Icon: Github,  href: 'https://github.com/preciousadepoju' },
                     ].map(({ Icon, href }, i) => (
@@ -983,12 +987,8 @@ export default function App() {
             <span className="font-bold tracking-tight">DEV<span className="text-primary">PRECIOUS</span></span>
           </motion.div>
           <div className="text-slate-500 text-sm">
-            © 2024 DevPrecious. Crafted with React, TypeScript & passion.
-          </div>
-          <div className="flex gap-8">
-            <a href="#" className="text-sm text-slate-400 hover:text-white hover:text-primary transition-colors">Privacy Policy</a>
-            <a href="#" className="text-sm text-slate-400 hover:text-white hover:text-primary transition-colors">Terms of Service</a>
-          </div>
+            © 2026 DevPrecious.</div>
+
         </div>
       </footer>
     </div>
