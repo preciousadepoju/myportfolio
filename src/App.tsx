@@ -543,10 +543,10 @@ export default function App() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-tight">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-tight">
               <span className="text-gradient">Precious</span>
               <br />
-              <span className="text-slate-100 text-3xl md:text-5xl font-semibold tracking-tight min-h-[1.5em] block">
+              <span className="text-slate-100 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight min-h-[1.5em] block">
                 {typewriterText}
                 <span className="cursor-blink text-primary ml-0.5">|</span>
               </span>
@@ -690,7 +690,7 @@ export default function App() {
                 </div>
 
                 {/* Stat cards */}
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <StatCard icon={Layers} value={3} suffix="+" label="Years Exp." delay={0.1} />
                   <StatCard icon={Rocket} value={20} suffix="+" label="Projects" delay={0.2} />
                   <StatCard icon={Zap} value={15} suffix="+" label="Happy Clients" delay={0.3} />
