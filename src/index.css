@@ -15,6 +15,72 @@
   }
 }
 
+/* ─── Keyframe Animations ──────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-18px) rotate(3deg); }
+  66%       { transform: translateY(-8px) rotate(-2deg); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50%       { transform: translateY(-25px) translateX(10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(114, 0, 245, 0.3), 0 0 40px rgba(114, 0, 245, 0.1); }
+  50%       { box-shadow: 0 0 40px rgba(114, 0, 245, 0.6), 0 0 80px rgba(114, 0, 245, 0.3); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(20px, -15px) scale(1.03); }
+}
+
+@keyframes counter-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(114, 0, 245, 0.3); }
+  50%       { border-color: rgba(114, 0, 245, 0.8); }
+}
+
+@keyframes wave {
+  0%   { transform: scaleY(1); }
+  50%  { transform: scaleY(1.6); }
+  100% { transform: scaleY(1); }
+}
+
+/* ─── Utility Classes ──────────────────────────────────────────── */
+
 @layer utilities {
   .glass-card {
     background: rgba(255, 255, 255, 0.03);
@@ -28,18 +94,135 @@
     border-color: #7200f5;
   }
 
+  /* Grid background with subtle animation */
   .grid-bg {
-    background-image: radial-gradient(circle at 2px 2px, rgba(114, 0, 245, 0.05) 1px, transparent 0);
+    background-image:
+      radial-gradient(circle at 2px 2px, rgba(114, 0, 245, 0.06) 1px, transparent 0);
     background-size: 40px 40px;
   }
 
+  /* Animated gradient text */
   .text-gradient {
-    background: linear-gradient(to right, #ffffff, #7200f5);
+    background: linear-gradient(135deg, #ffffff 0%, #a855f7 40%, #7200f5 60%, #ffffff 100%);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 6s ease infinite;
   }
 
   .hero-glow {
-    background: radial-gradient(circle at center, rgba(114, 0, 245, 0.15) 0%, transparent 70%);
+    background: radial-gradient(ellipse at 50% 60%, rgba(114, 0, 245, 0.18) 0%, transparent 70%);
+  }
+
+  /* Shimmer effect on cards */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.07) 50%, transparent 60%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  /* Floating animation utilities */
+  .float { animation: float 6s ease-in-out infinite; }
+  .float-slow { animation: float-slow 9s ease-in-out infinite; }
+  .float-delay-1 { animation-delay: 1.5s; }
+  .float-delay-2 { animation-delay: 3s; }
+  .float-delay-3 { animation-delay: 4.5s; }
+
+  /* Spinning rings */
+  .spin-slow { animation: spin-slow 20s linear infinite; }
+  .spin-reverse { animation: spin-reverse 15s linear infinite; }
+
+  /* Pulsing glow */
+  .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+  /* Orb drift — simplified */
+  .orb-drift { animation: orb-drift 14s ease-in-out infinite; }
+
+  /* Cursor blink */
+  .cursor-blink {
+    display: inline-block;
+    animation: blink 1s step-end infinite;
+  }
+
+  /* Animated border */
+  .border-animated {
+    animation: border-glow 2.5s ease-in-out infinite;
+  }
+
+  /* Wave bars (for hero decoration) */
+  .wave-bar {
+    display: inline-block;
+    width: 3px;
+    height: 16px;
+    background: #7200f5;
+    border-radius: 2px;
+    animation: wave 1.2s ease-in-out infinite;
+  }
+  .wave-bar:nth-child(2) { animation-delay: 0.15s; height: 24px; }
+  .wave-bar:nth-child(3) { animation-delay: 0.30s; height: 32px; }
+  .wave-bar:nth-child(4) { animation-delay: 0.45s; height: 20px; }
+  .wave-bar:nth-child(5) { animation-delay: 0.60s; height: 14px; }
+
+
+  /* Section slide-up default */
+  .slide-up {
+    animation: slide-up 0.7s ease forwards;
+  }
+
+  /* Tech badge pill */
+  .tech-pill {
+    background: linear-gradient(135deg, rgba(114,0,245,0.15), rgba(114,0,245,0.05));
+    border: 1px solid rgba(114,0,245,0.25);
+    border-radius: 9999px;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #a78bfa;
+    transition: all 0.2s;
+  }
+  .tech-pill:hover {
+    background: rgba(114,0,245,0.3);
+    border-color: #7200f5;
+    color: #fff;
+  }
+
+  /* Glowing button */
+  .btn-glow {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .btn-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #7200f5, #a855f7, #7200f5);
+    background-size: 200%;
+    border-radius: inherit;
+    animation: gradient-shift 3s ease infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+  }
+  .btn-glow:hover::before { opacity: 1; }
+
+  /* Scroll progress line */
+  .scroll-line {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: linear-gradient(to right, #7200f5, #a855f7);
+    z-index: 100;
+    transform-origin: left;
   }
 }
