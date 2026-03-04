@@ -185,7 +185,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${isScrolled ? 'bg-background-dark/85 backdrop-blur-xl border-white/10 h-16 shadow-[0_4px_30px_rgba(114,0,245,0.1)]' : 'bg-transparent border-transparent h-20'}`}>
-      <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
         <motion.div
           className="flex items-center gap-2"
           initial={{ opacity: 0, x: -20 }}
@@ -195,7 +195,7 @@ const Navbar = () => {
           <div className="size-8 bg-primary rounded-lg flex items-center justify-center pulse-glow">
             <Terminal className="text-white size-5" />
           </div>
-          <span className="text-xl font-bold tracking-tight">DEV<span className="text-primary">PRECIOUS</span></span>
+          <span className="text-lg sm:text-xl font-bold tracking-tight">DEV<span className="text-primary">PRECIOUS</span></span>
         </motion.div>
 
         {/* Desktop Nav */}
@@ -241,7 +241,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="absolute top-full left-0 w-full bg-background-dark/95 backdrop-blur-xl border-b border-white/10 px-6 flex flex-col gap-4 overflow-hidden md:hidden"
+            className="absolute top-full left-0 w-full bg-background-dark/95 backdrop-blur-xl border-b border-white/10 px-4 sm:px-6 flex flex-col gap-4 overflow-hidden md:hidden"
           >
             <div className="py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -514,7 +514,7 @@ export default function App() {
 
         {/* Single static ring — no spin cost */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="size-[480px] rounded-full border border-primary/6" />
+          <div className="size-[300px] sm:size-[480px] rounded-full border border-primary/6" />
         </div>
 
         <motion.div
@@ -528,7 +528,7 @@ export default function App() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-primary text-xs font-bold tracking-widest uppercase"
+            className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-primary/10 border border-primary/25 text-primary text-[10px] sm:text-xs font-bold tracking-wider sm:tracking-widest uppercase text-center max-w-[90%] sm:max-w-none"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
@@ -832,12 +832,12 @@ export default function App() {
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <motion.div
-              className="glass-card rounded-3xl p-8 md:p-16 border-white/10 overflow-hidden relative hover:border-primary/20 transition-all duration-500"
+              className="glass-card rounded-3xl p-6 sm:p-8 md:p-16 border-white/10 overflow-hidden relative hover:border-primary/20 transition-all duration-500"
               whileHover={{ boxShadow: '0 30px 100px rgba(114,0,245,0.15)' }}
             >
               <div className="absolute -top-24 -right-24 size-72 bg-primary/20 blur-[120px] rounded-full" />
               <div className="absolute -bottom-24 -left-24 size-72 bg-primary/10 blur-[100px] rounded-full" />
-              <div className="relative z-10 grid lg:grid-cols-2 gap-16">
+              <div className="relative z-10 grid lg:grid-cols-2 gap-10 lg:gap-16">
                 <div className="space-y-8">
                   <div>
                     <div className="flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest mb-4">
@@ -861,7 +861,7 @@ export default function App() {
                         </div>
                         <div>
                           <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">{label}</p>
-                          <p className="font-medium">{value}</p>
+                          <p className="font-medium break-all">{value}</p>
                         </div>
                       </motion.div>
                     ))}
